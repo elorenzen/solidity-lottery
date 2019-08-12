@@ -1,10 +1,10 @@
 {
-  "name": "inbox",
+  "name": "lottery",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/inbox.test.js"
+    "test": "mocha tests/lottery.test.js"
   },
   "author": "",
   "license": "ISC",
