@@ -2,7 +2,7 @@ const path = require('path'),
       solc = require('solc'),
         fs = require('fs');
 
-const inboxPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
+const lotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
 const source = fs.readFileSync(inboxPath, 'utf8');
 
 
