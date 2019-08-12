@@ -13,6 +13,7 @@ const web3 = new Web3(provider)
 let accounts;
 let inbox;
 const INITIAL_MESSAGE = 'Hi there!';
+const NEW_MESSAGE = 'See ya later';
 
 beforeEach(async () => {
     // Get a list of all accounts
@@ -32,7 +33,7 @@ beforeEach(async () => {
 describe('Inbox', () => {
     it('Deploys a contract', () => {
         // Checks deployment through instance of address
-        assert.ok(inbox.options.address)
+        assert.ok(inbox.options.address);
     });
 
     it('Contract has a default message', async () => {
@@ -42,6 +43,12 @@ describe('Inbox', () => {
             containing functions in .sol file 
         */
         const message = await inbox.methods.message().call();
-        assert.equal(message, INITIAL_MESSAGE)
+        assert.equal(message, INITIAL_MESSAGE);
+    });
+
+    it('Message can be changed', async () => {
+        await inbox.methods.setMessage(NEW_MESSAGE).send({ from: accounts[0] });
+        const message = await inbox.methods.message().call();
+        assert.equal(message, NEW_MESSAGE);
     });
 })
